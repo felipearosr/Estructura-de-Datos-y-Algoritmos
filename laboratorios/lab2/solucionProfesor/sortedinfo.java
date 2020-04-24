@@ -35,7 +35,7 @@ public class sortedinfo {
         ArrayList<provinceData> processingData = new ArrayList<provinceData>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 		try {
-			reader = new BufferedReader(new FileReader("./COVID19_open_line_list.csv"));
+			reader = new BufferedReader(new FileReader("../resources/COVID19_open_line_list.csv"));
             String line = reader.readLine();
             line = reader.readLine();
             int i = 0, j = 0, k = 0;
