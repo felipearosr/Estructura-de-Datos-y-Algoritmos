@@ -1,4 +1,4 @@
-public class Solution {
+public class QuickSelect {
     public int findKthLargest(int[] nums, int k) {
         int start = 0, end = nums.length - 1, index = nums.length - k;
         while (start < end) {
