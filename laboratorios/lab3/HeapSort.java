@@ -3,7 +3,7 @@ public class HeapSort {
     public void Sort(int arr[]) {
         int length = arr.length;
         for (int i = length / 2 - 1; i >= 0; --i)
-        Heapify(arr, length, i);
+            Heapify(arr, length, i);
         for (int i = length - 1; i > 0; i--)  { 
             Swap(arr, 0, i);
             Heapify(arr, i, 0); 
@@ -12,12 +12,12 @@ public class HeapSort {
 
     void Heapify(int arr[], int length, int i) {
         int largest = i,
-        left = 2 * i + 1,
-        right = 2 * i + 2;
+            left = 2 * i + 1,
+            right = 2 * i + 2;
         if (left < length && arr[left] > arr[largest]) 
-        largest = left; 
+            largest = left; 
         if (right < length && arr[right] > arr[largest]) 
-        largest = right; 
+            largest = right; 
         if (largest != i) { 
             Swap(arr, i, largest);
             Heapify(arr, length, largest); 
