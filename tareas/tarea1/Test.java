@@ -26,7 +26,7 @@ public class Test {
         System.out.println("Range:" + "\t" + min + "/" + max + "\t" + "True range: " + range);
         long startTime = System.nanoTime();
         System.out.println("QuickSelect" +  "\t" + "K-th(" + kPosition + ") smallest element in array : " +  
-        quickselect.findKthSmallest(arr2, kPosition));
+        quickselect.solve(arr2, kPosition));
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
         System.out.println("\t" + "\t" + "Time in ms: " + duration/1000000);

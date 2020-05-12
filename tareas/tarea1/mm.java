@@ -1,5 +1,5 @@
 public class mm {
-    public static int findKthSmallest(int[] nums, int k) {
+    public static int solve(int[] nums, int k) {
         int start = 0, 
             end = nums.length - 1,
             index = k - 1;
