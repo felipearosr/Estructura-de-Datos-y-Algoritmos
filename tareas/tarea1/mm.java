@@ -1,6 +1,9 @@
-public class QuickSelect {
-    public int findKthLargest(int[] nums, int k) {
-        int start = 0, end = nums.length - 1, index = nums.length - k;
+public class mm {
+    public static int findKthSmallest(int[] nums, int k) {
+        int start = 0, 
+            end = nums.length - 1,
+            index = k - 1;
+
         while (start < end) {
             int pivot = partion(nums, start, end);
             if (pivot < index) start = pivot + 1; 
@@ -10,7 +13,7 @@ public class QuickSelect {
         return nums[start];
     }
     
-    private int partion(int[] nums, int start, int end) {
+    private static int partion(int[] nums, int start, int end) {
         int pivot = start, temp;
         while (start <= end) {
             while (start <= end && nums[start] <= nums[pivot]) start++;
