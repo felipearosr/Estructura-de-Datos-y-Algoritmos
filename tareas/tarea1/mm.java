@@ -18,9 +18,9 @@ public class mm {
         util.swap(list, end, storeIndex);
         return storeIndex;
     }
-    static int findMedian(int arr[], int l, int len) {
-        Arrays.sort(arr, l, l + len);
-        return arr[l + len / 2];
+    static int findMedian(int arr[], int start, int length) {
+        Arrays.sort(arr, start, start + length);
+        return arr[start + length / 2];
     }
     static int solve(int arr[], int start, int end, int k) {
         if (k > 0 && k <= end - start + 1) {
