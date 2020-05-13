@@ -18,11 +18,11 @@ public class sortedinfo {
         return true;
     }
     
-    public static int checkExists(ArrayList<provinceData> a, String p1, String c1)
+    public static int checkExists(ArrayList<provinceData> arr, String p1, String c1)
     {
-        for(int i = 0; i < a.size(); i++)
+        for(int i = 0; i < arr.size(); i++)
         {
-            if(a.get(i).getProvince().equals(p1) && a.get(i).getCountry().equals(c1))
+            if(arr.get(i).getProvince().equals(p1) && arr.get(i).getCountry().equals(c1))
             {
                 return i;
             }
@@ -37,7 +37,6 @@ public class sortedinfo {
 		try {
 			reader = new BufferedReader(new FileReader("../resources/COVID19_open_line_list.csv"));
             String line = reader.readLine();
-            line = reader.readLine();
             int i = 0, j = 0, k = 0;
             provinceData p1;
             LocalDate localDate;

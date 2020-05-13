@@ -1,6 +1,6 @@
 public class HeapSort {
 
-    public void Sort(int arr[]) {
+    public static void Sort(int arr[]) {
         int length = arr.length;
         for (int i = length / 2 - 1; i >= 0; --i)
             Heapify(arr, length, i);
@@ -10,7 +10,7 @@ public class HeapSort {
         } 
     }
 
-    void Heapify(int arr[], int length, int i) {
+    public static void Heapify(int arr[], int length, int i) {
         int largest = i,
             left = 2 * i + 1,
             right = 2 * i + 2;
@@ -21,16 +21,6 @@ public class HeapSort {
         if (largest != i) { 
             Util.Swap(arr, i, largest);
             Heapify(arr, length, largest); 
-        } 
-    }
- 
-    public static void main(String[] args) {
-        int arr[] = {12, 11, 13, 5, 6, 7};
-  
-        HeapSort ob = new HeapSort(); 
-        ob.Sort(arr); 
-  
-        System.out.println("Sorted array is"); 
-        Util.PrintArray(arr); 
+        }
     }
 }
