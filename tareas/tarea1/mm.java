@@ -1,57 +1,48 @@
 import java.util.Arrays;
-import java.util.Random;
-import java.lang.*;
-  
+
 public class mm {
-    public static void swap(int[] list, int i, int j) {
-        int temp = list[i];
-        list[i] = list[j];
-        list[j] = temp;
-    }
-    public static int partition(int[] list, int left, int right, int val) {
+    public static int partition(int[] list, int start, int end, int val) {
         int i;
-        for (i = left; i < right; i++) {
-            if (list[i] == val) {
+        for (i = start; i < end; i++)
+            if (list[i] == val)
                 break;
-            }
-        }
-        swap(list, i, right);
-        int pivotValue = list[right];
-        int storeIndex = left;
-        for (i = left; i <= right; i++) {
+        util.swap(list, i, end);
+        int pivotValue = list[end];
+        int storeIndex = start;
+        for (i = start; i <= end; i++) {
             if (list[i] < pivotValue) {
-                swap(list, storeIndex, i);
+                util.swap(list, storeIndex, i);
                 storeIndex++;
             }
         }
-        swap(list, right, storeIndex);
+        util.swap(list, end, storeIndex);
         return storeIndex;
     }
     static int findMedian(int arr[], int l, int len) {
         Arrays.sort(arr, l, l + len);
         return arr[l + len / 2];
     }
-    static int solve(int arr[], int l, int r, int k) {
-        if (k > 0 && k <= r - l + 1) {
-            int n = r - l + 1, i;
+    static int solve(int arr[], int start, int end, int k) {
+        if (k > 0 && k <= end - start + 1) {
+            int n = end - start + 1, i;
             int median[] = new int[(n + 4) / 5];
             for (i = 0; i < n / 5; i++) {
-                median[i] = findMedian(arr, l + i * 5, 5);
+                median[i] = findMedian(arr, start + i * 5, 5);
             }
             if (i * 5 < n) {
-                median[i] = findMedian(arr, l + i * 5, n % 5);
+                median[i] = findMedian(arr, start + i * 5, n % 5);
                 i++;
             }
             int medOfMed = (i == 1) ? median[i - 1]: solve(median, 0, i - 1, i / 2);
 
-            int pos = partition(arr, l, r, medOfMed);
-            if (pos - l == k - 1) {
-                return arr[pos];
+            int pos = partition(arr, start,end, medOfMed);
+            if (pos - start == k - 1) {
+               return arr[pos];
             }
-            if (pos - l > k - 1) {
-                return solve(arr, l, pos - 1, k);
+            if (pos - start > k - 1) {
+               return solve(arr, start, pos - 1, k);
             }
-            return solve(arr, pos + 1, r, k - pos + l - 1);
+           return solve(arr, pos + 1, end , k - pos + start - 1);
         }
         return Integer.MAX_VALUE;
     }
